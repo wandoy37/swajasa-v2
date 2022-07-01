@@ -13,6 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Landing Pages
 Route::get('/', function () {
     return view('index');
 });
+
+Route::get('/service', function () {
+    return view('services');
+});
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/contact', function () {
+    return view('contact');
+});
+// Landing Pages
