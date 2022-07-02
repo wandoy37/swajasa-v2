@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,3 +31,8 @@ Route::get('/contact', function () {
     return view('contact');
 });
 // Landing Pages
+
+// Admin Group
+Route::prefix('admin')->middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+});
