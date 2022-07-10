@@ -9,14 +9,14 @@
                     </span>
                     <h4 class="text-section">MENU NAVIGATION</h4>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item {{ (request()->segment(2) == 'dashboard') ? 'active' : '' }}">
                     <a href="{{ route('dashboard') }}">
                         <i class="far fas fa-tachometer-alt"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('dashboard') }}">
+                <li class="nav-item {{ (request()->segment(2) == 'service') ? 'active' : '' }}">
+                    <a href="{{ route('service') }}">
                         <i class="far fas fa-clipboard-list"></i>
                         <p>Service</p>
                     </a>

@@ -53,9 +53,52 @@
 
 		@include('admin.layouts.components.sidebar')
 
-		{{-- Content --}}
-        @yield('content')
-		{{-- /Content --}}
+		<div class="main-panel">
+
+			{{-- Content --}}
+			@yield('content')
+			{{-- /Content --}}
+			
+			<footer class="footer">
+				<div class="container-fluid">
+					<nav class="pull-left">
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link" href="http://www.themekita.com">
+									ThemeKita
+								</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="https://api.whatsapp.com/send/?phone=6282148722747&text=Hi,+we+are+form+Swajasa+Lintas+Media+request+Support+Service">
+									Help
+								</a>
+							</li>
+							{{-- <li class="nav-item">
+								<a class="nav-link" href="#">
+									Licenses
+								</a>
+							</li> --}}
+						</ul>
+					</nav>
+					<div class="copyright ml-auto">
+						<span class="text-muted fst-italic">Copyright &copy; WanSite 2022</span>
+						{{-- 2018, made with <i class="fa fa-heart heart text-danger"></i> by <a href="http://www.themekita.com">ThemeKita</a> --}}
+					</div>				
+				</div>
+			</footer>
+		</div>
+
+
+
+
+
+
+
+
+
+
+
+
         
 	</div>
 	<!--   Core JS Files   -->
@@ -73,39 +116,14 @@
 	<!-- Moment JS -->
 	<script src="{{ asset('atlantis/js/plugin/moment/moment.min.js') }}"></script>
 
-	<!-- Chart JS -->
-	<script src="{{ asset('atlantis/js/plugin/chart.js/chart.min.js') }}"></script>
-
 	<!-- jQuery Sparkline -->
 	<script src="{{ asset('atlantis/js/plugin/jquery.sparkline/jquery.sparkline.min.js') }}"></script>
-
-	<!-- Chart Circle -->
-	<script src="{{ asset('atlantis/js/plugin/chart-circle/circles.min.js') }}"></script>
 
 	<!-- Datatables -->
 	<script src="{{ asset('atlantis/js/plugin/datatables/datatables.min.js') }}"></script>
 
-	<!-- Bootstrap Notify -->
-	<script src="{{ asset('atlantis/js/plugin/bootstrap-notify/bootstrap-notify.min.js') }}"></script>
-
 	<!-- Bootstrap Toggle -->
 	<script src="{{ asset('atlantis/js/plugin/bootstrap-toggle/bootstrap-toggle.min.js') }}"></script>
-
-	<!-- jQuery Vector Maps -->
-	<script src="{{ asset('atlantis/js/plugin/jqvmap/jquery.vmap.min.js') }}"></script>
-	<script src="{{ asset('atlantis/js/plugin/jqvmap/maps/jquery.vmap.world.js') }}"></script>
-
-	<!-- Google Maps Plugin -->
-	<script src="{{ asset('atlantis/js/plugin/gmaps/gmaps.js') }}"></script>
-
-	<!-- Dropzone -->
-	<script src="{{ asset('atlantis/js/plugin/dropzone/dropzone.min.js') }}"></script>
-
-	<!-- Fullcalendar -->
-	<script src="{{ asset('atlantis/js/plugin/fullcalendar/fullcalendar.min.js') }}"></script>
-
-	<!-- DateTimePicker -->
-	<script src="{{ asset('') }}atlantis/js/plugin/datepicker/bootstrap-datetimepicker.min.js"></script>
 
 	<!-- Bootstrap Tagsinput -->
 	<script src="{{ asset('atlantis/js/plugin/bootstrap-tagsinput/bootstrap-tagsinput.min.js') }}"></script>
@@ -128,10 +146,15 @@
 	<!-- Owl Carousel -->
 	<script src="{{ asset('atlantis/js/plugin/owl-carousel/owl.carousel.min.js') }}"></script>
 
-	<!-- Magnific Popup -->
-	<script src="{{ asset('atlantis/js/plugin/jquery.magnific-popup/jquery.magnific-popup.min.js') }}"></script>
-
 	<!-- Atlantis JS -->
 	<script src="{{ asset('atlantis/js/atlantis.min.js') }}"></script>
+
+	<script>
+		window.setTimeout(function() {
+		  $(".alert").fadeTo(300, 0).slideUp(300, function(){
+			$(this).remove(); 
+		  });
+		}, 5000);
+	  </script>
 </body>
 </html>
