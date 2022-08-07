@@ -1,5 +1,5 @@
 <!-- Sidebar -->
-<div class="sidebar sidebar-style-2">			
+<div class="sidebar sidebar-style-2">
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
             <ul class="nav nav-primary">
@@ -15,11 +15,30 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Service Control</h4>
+                </li>
                 <li class="nav-item {{ (request()->segment(2) == 'service') ? 'active' : '' }}">
                     <a href="{{ route('service') }}">
                         <i class="far fas fa-clipboard-list"></i>
                         <p>Service</p>
                     </a>
+                </li>
+                <li class="nav-item {{ (request()->segment(2) == 'benefit') ? 'active' : '' }}">
+                    <a href="{{ route('benefit') }}">
+                        <i class="far fas fa-clipboard-list"></i>
+                        <p>Benefit</p>
+                    </a>
+                </li>
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Settings</h4>
                 </li>
                 <li class="nav-item">
                     <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">

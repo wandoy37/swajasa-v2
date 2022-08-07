@@ -5,8 +5,22 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Service</h4>
+            <h4 class="page-title">
+                <a href="{{ route('service') }}" class="text-decoration-none">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                Service
+            </h4>
         </div>
+
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('service') }}">Service</a></li>
+                <li class="breadcrumb-item active">Edit</li>
+            </ol>
+        </nav>
+
         <div class="row">
             <div class="col-md-12">
 
@@ -37,7 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Content</label>
-                                <input type="text" name="content" class="form-control @error('content') is-invalid @enderror" placeholder="Content.." value="{{ old('content', $service->content) }}">
+                                <textarea name="content" type="text" id="summernote" @error('content') is-invalid @enderror>{{ old('content', $service->content) }}</textarea>
                                 @error('content')
                                     <span class="text-danger">
                                         {{ $message }}

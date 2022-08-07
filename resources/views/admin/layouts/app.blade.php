@@ -30,7 +30,7 @@
 		<div class="main-header">
 			<!-- Logo Header -->
 			<div class="logo-header" data-background-color="blue">
-				
+
 				<a href="index.html" class="logo text-white h2 mt-4 py-2" style="font-weight: 700;">
 					<img src="{{ asset('assets/img/brand-swajasa.png') }}" alt="navbar brand" width="45px" class="navbar-brand">
                     Swajasa
@@ -47,7 +47,7 @@
 					</button>
 				</div>
 			</div>
-			<!-- End Logo Header -->			
+			<!-- End Logo Header -->
             @include('admin.layouts.components.navbar')
 		</div>
 
@@ -58,7 +58,7 @@
 			{{-- Content --}}
 			@yield('content')
 			{{-- /Content --}}
-			
+
 			<footer class="footer">
 				<div class="container-fluid">
 					<nav class="pull-left">
@@ -83,7 +83,7 @@
 					<div class="copyright ml-auto">
 						<span class="text-muted fst-italic">Copyright &copy; WanSite 2022</span>
 						{{-- 2018, made with <i class="fa fa-heart heart text-danger"></i> by <a href="http://www.themekita.com">ThemeKita</a> --}}
-					</div>				
+					</div>
 				</div>
 			</footer>
 		</div>
@@ -99,7 +99,7 @@
 
 
 
-        
+
 	</div>
 	<!--   Core JS Files   -->
 	<script src="{{ asset('atlantis/js/core/jquery.3.2.1.min.js') }}"></script>
@@ -152,9 +152,18 @@
 	<script>
 		window.setTimeout(function() {
 		  $(".alert").fadeTo(300, 0).slideUp(300, function(){
-			$(this).remove(); 
+			$(this).remove();
 		  });
 		}, 5000);
 	  </script>
+
+    <script>
+        $('#summernote').summernote({
+            placeholder: 'Atlantis',
+            fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+            tabsize: 2,
+            height: 300
+        });
+    </script>
 </body>
 </html>

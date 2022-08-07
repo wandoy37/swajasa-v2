@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Benefit;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -18,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             ServiceSeeder::class,
+            BenefitSeeder::class,
         ]);
     }
 }

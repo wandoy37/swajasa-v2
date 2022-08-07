@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ServiceController;
+use App\Models\Benefit;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -50,4 +52,13 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::patch('/service/{id}', [ServiceController::class, 'update']);
     // Delete service
     Route::delete('/service/{slug}', [ServiceController::class, 'destroy'])->name('service.delete');
+
+    // Benefit Management Controlls
+    Route::get('/benefit', [BenefitController::class, 'index'])->name('benefit');
+    // Create benefit
+    Route::post('/benefit', [BenefitController::class, 'store'])->name('benefit.store');
+    // Update benefit
+    Route::patch('/benefit/{id}', [BenefitController::class, 'update']);
+    // Delete benefit
+    Route::delete('/benefit/{id}', [BenefitController::class, 'destroy']);
 });

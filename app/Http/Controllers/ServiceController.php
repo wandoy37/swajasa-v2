@@ -56,7 +56,8 @@ class ServiceController extends Controller
 
         // ddd($data);
         $service = Service::create($data);
-        return redirect('admin/service')->with('success', 'Berhasil menambahkan layanan');
+        $alert = 'New service' . $request->title . 'Has been added!';
+        return redirect('admin/service')->with('success', $alert);
     }
 
     /**

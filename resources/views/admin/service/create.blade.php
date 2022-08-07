@@ -5,8 +5,22 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Service</h4>
+            <h4 class="page-title">
+                <a href="{{ route('service') }}" class="text-decoration-none">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                Service
+            </h4>
         </div>
+
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('service') }}">Service</a></li>
+                <li class="breadcrumb-item active">Create</li>
+            </ol>
+        </nav>
+
         <div class="row">
             <div class="col-md-12">
 
@@ -18,8 +32,6 @@
                         <form action="{{ route('service.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
-                                <input type="text" name="kode_matkul" hidden value="10101">
-                                <input type="text" name ="pertemuan" hidden value="4">
                                 <label>Title</label>
                                 <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" placeholder="Title.." value="{{ old('title') }}">
                                 @error('title')
@@ -39,7 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Content</label>
-                                <input type="text" name="content" class="form-control @error('content') is-invalid @enderror" placeholder="Content.." value="{{ old('content') }}">
+                                <textarea name="content" type="text" id="summernote" @error('content') is-invalid @enderror>{{ old('content') }}</textarea>
                                 @error('content')
                                     <span class="text-danger">
                                         {{ $message }}

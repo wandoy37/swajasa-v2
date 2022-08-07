@@ -5,8 +5,18 @@
 <div class="container">
     <div class="page-inner">
         <div class="page-header">
-            <h4 class="page-title">Service</h4>
+            <h4 class="page-title">
+                Service
+            </h4>
         </div>
+
+        <nav aria-label="breadcrumb" class="mb-4">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">Dashboard</a></li>
+                <li class="breadcrumb-item active">Service</li>
+            </ol>
+        </nav>
+
         @if (session('success'))
             <div class="alert alert-success col-lg-6" role="alert">
                 {{ session('success') }}
