@@ -2,9 +2,12 @@
 
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ServiceController;
 use App\Models\Benefit;
+use App\Models\Message;
 use App\Models\Package;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
@@ -21,22 +24,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Landing Pages
-Route::get('/', function () {
-    return view('index');
+Route::get('/', [HomeController::class, 'home'])->name('home');
+
+Route::get('/service', [HomeController::class, 'service'])->name('service');
+
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
+//succes send message
+Route::get('/success', function () {
+    return view('home.success');
 });
 
-Route::get('/service', function () {
-    return view('services');
-});
-
-Route::get('/about', function () {
-    return view('about');
-});
-
-Route::get('/contact', function () {
-    return view('contact');
-});
-// Landing Pages
+// action send meesage
+Route::post('/message/create', [HomeController::class, 'messageStore'])->name('message.create');
+// End Landing Pages
 
 // Admin Group
 Route::prefix('admin')->middleware(['auth'])->group(function () {
@@ -78,4 +81,13 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::patch('/package/{id}', [PackageController::class, 'update']);
     // Delete package
     Route::delete('/package/{slug}', [PackageController::class, 'destroy'])->name('package.delete');
+
+    // Message / pesan
+    Route::get('/message', [MessageController::class, 'index'])->name('message');
+    // view pesan
+    Route::get('/message/{id}/view', [MessageController::class, 'show']);
+    // Update status pesan
+    Route::patch('/message/{id}', [MessageController::class, 'update']);
+    // Delete pesan
+    Route::delete('/message/{id}', [MessageController::class, 'destroy']);
 });

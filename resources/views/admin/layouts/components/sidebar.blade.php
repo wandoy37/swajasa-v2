@@ -15,6 +15,12 @@
                         <p>Dashboard</p>
                     </a>
                 </li>
+                <li class="nav-item {{ (request()->segment(2) == 'message') ? 'active' : '' }}">
+                    <a href="{{ route('message') }}">
+                        <i class="fa fa-envelope"></i>
+                        <p>Message</p>
+                    </a>
+                </li>
 
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
