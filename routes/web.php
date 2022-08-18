@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ServiceController;
 use App\Models\Benefit;
+use App\Models\Package;
 use App\Models\Service;
 use Illuminate\Support\Facades\Route;
 
@@ -61,4 +63,19 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::patch('/benefit/{id}', [BenefitController::class, 'update']);
     // Delete benefit
     Route::delete('/benefit/{id}', [BenefitController::class, 'destroy']);
+    // benefit select
+    Route::get('/benefit/select', [PackageController::class, 'select'])->name('benefits.select');
+
+    // Package management control
+    Route::get('/package', [PackageController::class, 'index'])->name('package');
+    // Create package
+    Route::get('/package/create', [PackageController::class, 'create'])->name('package.create');
+    // Store benefit
+    Route::post('/package', [PackageController::class, 'store'])->name('package.store');
+    // Edit package benefit
+    Route::get('/package/{slug}/edit', [PackageController::class, 'edit']);
+    // Update package benefit
+    Route::patch('/package/{id}', [PackageController::class, 'update']);
+    // Delete package
+    Route::delete('/package/{slug}', [PackageController::class, 'destroy'])->name('package.delete');
 });

@@ -34,6 +34,12 @@
                         <p>Benefit</p>
                     </a>
                 </li>
+                <li class="nav-item {{ (request()->segment(2) == 'package') ? 'active' : '' }}">
+                    <a href="{{ route('package') }}">
+                        <i class="far fas fa-clipboard-list"></i>
+                        <p>Package</p>
+                    </a>
+                </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>

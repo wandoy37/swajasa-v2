@@ -10,6 +10,11 @@ class Benefit extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title'
+        'title',
     ];
+
+    public function scopeSearch($query, $title)
+    {
+        return $query->where('title', 'LIKE', "%{$title}%");
+    }
 }

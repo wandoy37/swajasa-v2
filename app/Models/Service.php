@@ -18,4 +18,9 @@ class Service extends Model
         'sampul',
         'status',
     ];
+
+    public function packages()
+    {
+        return $this->hasMany(Package::class);
+    }
 }
