@@ -28,7 +28,7 @@ class ServiceSeeder extends Seeder
             'slug' => Str::slug('Internet Desa Mandiri', '-'),
             'description' => 'Teknologi yang mampu menjangkau seluruh pelosok Indonesia',
             'content' => 'Teknologi makin mudah dan lancar dengan Dengan Swajasa nikmati internet yang mempua membantu kebutuhan anda',
-            'status' => 'publish',
+            'status' => 'draft',
         ]);
 
         Service::create([
@@ -36,7 +36,7 @@ class ServiceSeeder extends Seeder
             'slug' => Str::slug('Production House Multimedia Creator', '-'),
             'description' => 'Untuk para pembuat konten youtuber, Kami melayani pembuatan video commercial untuk iklan, company profile',
             'content' => 'Optimalkan konten anda, nikmati peningkatan insight bisnis yang anda bangun, raih bisnis bersama kami',
-            'status' => 'publish',
+            'status' => 'draft',
         ]);
 
         Service::create([
@@ -44,7 +44,7 @@ class ServiceSeeder extends Seeder
             'slug' => Str::slug('Pemasangan CCTV', '-'),
             'description' => 'Kami juga menyediakan jasa Pemasangan CCTV beserta Installasi CCTV',
             'content' => 'Tingkatkan keamanaan disekitar anda, nikmati pengalaman bisnis anda dengan keamanaan sekitar',
-            'status' => 'publish',
+            'status' => 'draft',
         ]);
     }
 }

@@ -6,7 +6,7 @@
     <div class="page-inner">
         <div class="page-header">
             <h4 class="page-title">
-                Benefit
+                Benefit <span class="badge badge-info">{{ $count }}</span>
             </h4>
         </div>
 
@@ -45,6 +45,20 @@
                             </div>
                         </form>
                     </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 my-2">
+                <div class="input-icon">
+                    <form action="/admin/benefit">
+                        <div class="input-icon">
+                            <input type="text" name="search" class="form-control" placeholder="Search for..." value="{{ $search }}">
+                            <span class="input-icon-addon">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

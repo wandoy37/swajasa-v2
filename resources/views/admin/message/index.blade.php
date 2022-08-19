@@ -6,7 +6,7 @@
     <div class="page-inner">
         <div class="page-header">
             <h4 class="page-title">
-                Message
+                Message <span class="badge badge-warning">{{ $count }}</span>
             </h4>
         </div>
 
@@ -22,14 +22,6 @@
                 {{ session('success') }}
             </div>
         @endif
-        {{-- <div class="page-category">
-            <div class="my-1">
-                <a href="{{ route('service.create') }}" class="btn btn-primary btn-sm">
-                    <i class="fa fa-plus"></i>
-                    Create new service
-                </a>
-            </div>
-        </div> --}}
         <div class="row">
             <div class="col-md-12">
                 <table class="table table-bordered">

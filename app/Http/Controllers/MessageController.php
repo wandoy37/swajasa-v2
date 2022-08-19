@@ -15,7 +15,8 @@ class MessageController extends Controller
     public function index()
     {
         $message = Message::query()->latest()->paginate(5);
-        return view('admin.message.index', compact('message'));
+        $count = Message::query()->where('status', 'warning')->count();
+        return view('admin.message.index', compact('message', 'count'));
     }
 
     /**

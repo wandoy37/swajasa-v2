@@ -23,6 +23,8 @@ class DatabaseSeeder extends Seeder
             ConfigSeeder::class,
             AboutSeeder::class,
             ContactSeeder::class,
+            PackageSeeder::class,
+            PackageBenefitSeeder::class,
         ]);
     }
 }

@@ -5,7 +5,7 @@
 <section id="layanan">
     <div class="container">
         <div class="row row-cols-1 g-4 justify-content-around">
-            <span class="fs-3 font-bold text-capitalize text-center text-primary">
+            <span class="fs-3 font-bold text-capitalize text-center text-blue-custome">
                 Layanan
             </span>
             <span class="text-muted text-center mb-4">Kami menyediakan berbagai layanan</span>

@@ -6,7 +6,7 @@
     <div class="page-inner">
         <div class="page-header">
             <h4 class="page-title">
-                Service
+                Service <span class="badge badge-info">{{ $count }}</span>
             </h4>
         </div>
 
@@ -28,6 +28,20 @@
                     <i class="fa fa-plus"></i>
                     Create new service
                 </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 my-2">
+                <div class="input-icon">
+                    <form action="/admin/service">
+                        <div class="input-icon">
+                            <input type="text" name="search" class="form-control" placeholder="Search for..." value="{{ $search }}">
+                            <span class="input-icon-addon">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -71,6 +85,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center">
+                    {{ $service->links('pagination::bootstrap-4') }}
+                </div>
             </div>
         </div>
     </div>

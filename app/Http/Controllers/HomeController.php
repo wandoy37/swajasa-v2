@@ -22,7 +22,7 @@ class HomeController extends Controller
         $contacts = Contact::find(1);
         // end configs website
 
-        $services = Service::all();
+        $services = Service::find(1);
         return view('home.index', compact('configs', 'contacts', 'services'));
     }
 
@@ -44,8 +44,13 @@ class HomeController extends Controller
     public function service_show($slug)
     {
         $service = Service::query()->where('slug', $slug)->first();
+        // configs website
+        // app
         $configs = Config::find(1);
-        return view('home.service.details', compact('service', 'configs'));
+        // contacts
+        $contacts = Contact::find(1);
+        // end configs website
+        return view('home.service.details', compact('service', 'contacts', 'configs'));
     }
 
     // about page

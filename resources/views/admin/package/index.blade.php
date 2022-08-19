@@ -6,7 +6,7 @@
     <div class="page-inner">
         <div class="page-header">
             <h4 class="page-title">
-                Package
+                Package <span class="badge badge-info">{{ $count }}</span>
             </h4>
         </div>
 
@@ -36,6 +36,20 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-md-6 my-2">
+                <div class="input-icon">
+                    <form action="/admin/package">
+                        <div class="input-icon">
+                            <input type="text" name="search" class="form-control" placeholder="Search for..." value="{{ $search }}">
+                            <span class="input-icon-addon">
+                                <i class="fa fa-search"></i>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-12">
                 <table class="table table-hover">
                     <thead class="text-center">
@@ -53,6 +67,10 @@
                         <tr>
                             <td>
                                 {{ $package->title }}
+                                <br>
+                                @if ($package->status == 'best')
+                                    <span class="badge badge-primary">{{ $package->status }}</span>
+                                @endif
                             </td>
                             <td class="text-center">
                                 {{ $package->service->title }}
@@ -77,6 +95,9 @@
                         @endforeach
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-center">
+                    {{ $packages->links('pagination::bootstrap-4') }}
+                </div>
             </div>
         </div>
     </div>

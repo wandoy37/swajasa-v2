@@ -19,6 +19,7 @@ class CreatePackagesTable extends Migration
             $table->string('slug');
             $table->bigInteger('price');
             $table->bigInteger('discount')->nullable();
+            $table->string('status')->nullable();
             $table->unsignedBigInteger('service_id');
             $table->timestamps();
 

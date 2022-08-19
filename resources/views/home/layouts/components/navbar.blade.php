@@ -1,13 +1,13 @@
 <!-- Navbar -->
-<nav class="navbar navbar-expand-sm navbar-dark bg-primary fixed-top">
+<nav class="navbar navbar-expand-sm navbar-dark bg-blue-custome fixed-top">
     <div class="container">
         <a class="navbar-brand fs-3" href="/">
-            <img src="{{ asset('uploads/' . $configs->brand_icon) }}" width="50px" class="d-inline-block align-text-top">
-            @if ($configs->brand_name == null)
-                Brand Name
+            @if ($configs->brand_icon == true)
+                <img src="{{ asset('uploads/' . $configs->brand_icon) }}" width="50px" class="d-inline-block align-text-top">
             @else
-                {{ $configs->brand_name }}
+                <img src="{{ asset('assets/img/brand-swajasa.png') }}" width="50px" class="d-inline-block align-text-top">
             @endif
+            {{ $configs->brand_name }}
             </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>

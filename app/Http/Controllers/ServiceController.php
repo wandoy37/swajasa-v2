@@ -17,8 +17,18 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        $service = Service::all();
-        return view('admin.service.index', compact('service'));
+        // $service = Service::query()->latest()->paginate(5);
+
+        $service = Service::query()->latest();
+        // Search service berdasarkan title
+        if (request('search')) {
+            $service->where('title', 'LIKE', '%' . request('search') . '%');
+        }
+        $search = request('search') ?? '';
+
+        $service = $service->paginate(5);
+        $count = Service::count();
+        return view('admin.service.index', compact('service', 'search', 'count'));
     }
 
     /**

@@ -25,9 +25,11 @@ class PackageController extends Controller
         if (request('search')) {
             $packages->where('title', 'LIKE', '%' . request('search') . '%');
         }
+        $search = request('search') ?? '';
 
         $packages = $packages->paginate(5);
-        return view('admin.package.index', compact('packages'));
+        $count = Package::count();
+        return view('admin.package.index', compact('packages', 'search', 'count'));
     }
 
     /**
@@ -93,6 +95,7 @@ class PackageController extends Controller
                 'price' => $request->price,
                 'service_id' => $request->service,
                 'discount' => $request->discount,
+                'status' => $request->status,
             ]);
             // Jika terdapat nilai pada discount maka push/insert datanya
             $package->benefits()->attach($request->benefit);
@@ -169,7 +172,9 @@ class PackageController extends Controller
                 'price' => $request->price,
                 'service_id' => $request->service,
                 'discount' => $request->discount,
+                'status' => $request->status,
             ]);
+            // dd($package);
             // Jika terdapat nilai pada discount maka push/insert datanya
             $package->benefits()->sync($request->benefit);
             return redirect('/admin/package')->with('success', 'Package has been updated!');

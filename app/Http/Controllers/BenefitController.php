@@ -15,8 +15,16 @@ class BenefitController extends Controller
      */
     public function index()
     {
-        $benefits = Benefit::query()->latest()->paginate(5);
-        return view('admin.benefit.index', compact('benefits'));
+        $benefits = Benefit::query()->latest();
+        // Search benefit berdasarkan title
+        if (request('search')) {
+            $benefits->where('title', 'LIKE', '%' . request('search') . '%');
+        }
+        $search = request('search') ?? '';
+
+        $benefits = $benefits->paginate(5);
+        $count = Benefit::count();
+        return view('admin.benefit.index', compact('benefits', 'search', 'count'));
     }
 
     /**

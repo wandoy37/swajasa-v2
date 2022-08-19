@@ -29,19 +29,19 @@ li a:hover{
 
 
 #banner {
-  background-color: #0d6efd;
+  background-color: #085ab8;
 }
 
 #footer{
-  background-color: #0d6efd;
+  background-color: #085ab8;
 }
 
 #about{
-  background-color: #0d6efd;
+  background-color: #085ab8;
 }
 
 #success{
-  background-color: #0d6efd;
+  background-color: #085ab8;
 }
 
 #service{
@@ -126,7 +126,7 @@ a.btn-contact:hover {
 }
 .title-layanan {
   font-weight: 700;
-  color: #0d6efd;
+  color: #085ab8;
 }
 
 .title-footer {
@@ -174,7 +174,15 @@ a.btn-contact:hover {
 }
 
 
-/* Pricing */
+/* Custome color */
 
-/* /Pricing */
+.bg-blue-custome {
+    background-color: #085ab8
+}
+
+.text-blue-custome {
+    color: #085ab8;
+}
+
+/* /Custome color */
 

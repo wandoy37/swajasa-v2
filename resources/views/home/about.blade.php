@@ -28,13 +28,13 @@
     <div class="container mb-2 pb-2">
         <div class="row">
             <div class="col-sm-6 my-4">
-                <h1 class="font-bold fs-1 text-primary">{{ $abouts->title }}</h1>
+                <h1 class="font-bold fs-1 text-blue-custome">{{ $abouts->title }}</h1>
                 <p class="fs-4 my-4">
                     {{ $abouts->content }}
                 </p>
             </div>
             <div class="col-sm-6 my-4">
-                <h1 class="font-bold fs-1 text-primary">Kantor Pusat</h1>
+                <h1 class="font-bold fs-1 text-blue-custome">Kantor Pusat</h1>
 
 
                 <div class="my-4">

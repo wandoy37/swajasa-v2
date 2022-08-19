@@ -109,7 +109,9 @@
                             </div>
                             <div class="form-group float-right">
                                 <a href="{{ route('package') }}" class="btn btn-round btn-light">Back</a>
-                                <button type="submit" class="btn btn-primary btn-round">Save</button>
+                                <input type="submit" name="status" value="best" class="btn btn-warning btn-round text-capitalize">
+                                <input type="submit" name="status" value="save" class="btn btn-primary btn-round text-capitalize">
+                                {{-- <button type="submit" class="btn btn-primary btn-round">Save</button> --}}
                             </div>
                         </div>
                     </div>

@@ -29,7 +29,7 @@
 <section>
     <div class="container py-4">
         <div class="row align-items-center justify-content-center my-4">
-            <h1 class="font-bold text-capitalize text-center mb-4 text-primary">Tentang Kami</h1>
+            <h1 class="font-bold text-capitalize text-center mb-4 text-blue-custome">Tentang Kami</h1>
             <div class="col-sm-12 text-center text-muted">
                 <p class="fs-4">{{ $configs->about }}</p>
             </div>
@@ -70,24 +70,65 @@
 <section id="layanan">
     <div class="container">
         <div class="row align-items-center justify-content-evenly my-4 row-cols-sm-1">
-            <h1 class="font-bold text-capitalize text-center mb-4 text-primary">
-                Layanan Kami
-            </h1>
-            @foreach ($services as $service)
-            <div class="col-sm-5 text-center mt-4">
-                <div class="border-layanan">
-                    <a href="{{ url("/service/$service->slug/show") }}" class="text-decoration-none text-dark">
-                        <img src="{{ asset('uploads/' . $service->icon) }}" class="img-fluid rounded-circle" width="100px">
-                        <div class="my-2">
-                            <span class="fs-4 title-layanan">{{ $service->title }}</span>
-                            <p class="description my-2">
-                                {{ $service->description }}
-                            </p>
+            <div class="col-sm-12 mt-1">
+                <div class="row align-items-center">
+                    <div class="text-center">
+                        <span class="fs-4 title-layanan">{{ $services->title }}</span>
+                        <p class="description my-2">
+                            {{ $services->description }}
+                        </p>
+                    </div>
+                    <div class="col-md-5">
+                        @if ($services->icon == true)
+                            <img src="{{ asset('uploads/' . $services->icon) }}" class="img-fluid rounded" width="100%">
+                        @else
+                            <img src="{{ asset('assets/img/installation-wifi2.jpg.png') }}" class="img-fluid rounded" width="100%">
+                        @endif
+                    </div>
+                    <div class="col-md-7">
+                        {{-- Packages --}}
+                        <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+                            @foreach ($services->packages as $item)
+                                @if ($item->status == 'best')
+                                    <div class="col-md-6">
+                                        <div class="card h-100">
+                                            <div class="card-body">
+                                                <div class="text-center mb-4">
+                                                    <h5 class="card-title font-bold text-primary">{{ $item->title }}</h5>
+                                                    @if ($item->discount == null)
+                                                        <p class="card-text font-bold">@currency($item->price) <small class="text-muted">/Bulan</small></p>
+                                                    @else
+                                                        <p class="card-text text-decoration-line-through fst-italic">@currency($item->price) <small class="text-muted">/Bulan</small></p>
+                                                        <p class="card-text font-bold">@currency($item->discount) <small class="text-muted">/Bulan</small></p>
+                                                    @endif
+                                                </div>
+                                                <div>
+                                                    <ul>
+                                                        @foreach ($item->benefits as $benefit)
+                                                            <li class="list-inline">
+                                                                <i class="fa-solid fa-circle-check text-primary"></i>
+                                                                {{ $benefit->title }}
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="mb-4 footer text-center mt-4">
+                                                <small class="text-muted">
+                                                    <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Hallo+saya+ingin+informasi+mengenai+layanan+{{ Str::slug($services->title, '+') }}+untuk+paket+{{ Str::slug($item->title, '+') }}" class="btn-paket">
+                                                        Pilih Paket
+                                                    </a>
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endif
+                            @endforeach
                         </div>
-                    </a>
+                        {{-- /Packages --}}
+                    </div>
                 </div>
             </div>
-            @endforeach
         </div>
     </div>
 </section>

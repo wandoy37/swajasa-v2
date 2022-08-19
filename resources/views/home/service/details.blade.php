@@ -21,9 +21,9 @@
                 <div class="text-center">
                     <span class="font-bold fs-4 text-primary">Pricing</span>
                 </div>
-                <p class="description my-2 text-center">
+                <div class="description my-2 text-center">
                     {!! $service->content !!}
-                </p>
+                </div>
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
@@ -33,11 +33,13 @@
                         <div class="card-body">
                             <div class="text-center mb-4">
                                 <h5 class="card-title font-bold text-primary">{{ $item->title }}</h5>
-                                @if ($item->discount == null)
+                                @if (!$item->price == 0)
+                                    @if ($item->discount == null)
                                     <p class="card-text font-bold">@currency($item->price) <small class="text-muted">/Bulan</small></p>
                                 @else
                                     <p class="card-text text-decoration-line-through fst-italic">@currency($item->price) <small class="text-muted">/Bulan</small></p>
                                     <p class="card-text font-bold">@currency($item->discount) <small class="text-muted">/Bulan</small></p>
+                                @endif
                                 @endif
                             </div>
                             <div>
@@ -53,7 +55,7 @@
                         </div>
                         <div class="mb-4 footer text-center mt-4">
                             <small class="text-muted">
-                                <a href="#" class="btn-paket">
+                                <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Hallo+saya+ingin+informasi+mengenai+layanan+{{ Str::slug($service->title, '+') }}+untuk+paket+{{ Str::slug($item->title, '+') }}" class="btn-paket">
                                     Pilih Paket
                                 </a>
                             </small>
@@ -71,10 +73,10 @@
         <div class="row mb-4 pb-4">
             <div class="col-sm-12 text-center">
                 <p class="fs-4 text-muted">{{ $configs->benefit }}</p>
-                <button class="btn-contact">
+                <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Haii+kami+dari+swajasa" class="btn-contact">
                     <img src="{{ asset('assets/img/social/phone.png') }}" class="img-fluid me-2" width="32px">
                     Hubungi Kami
-                </button>
+                </a>
             </div>
         </div>
     </div>

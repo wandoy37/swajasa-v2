@@ -21,7 +21,7 @@ class BenefitSeeder extends Seeder
             'title' => 'Speed Up To 15 Mbps'
         ]);
         Benefit::create([
-            'title' => 'Speed Up To 25 Mbps'
+            'title' => 'Speed Up To 20 Mbps'
         ]);
         Benefit::create([
             'title' => 'Speed Up To 30 Mbps'
