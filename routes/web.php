@@ -53,6 +53,10 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     // Pages
     Route::get('/pages', [DashboardController::class, 'pages'])->name('pages');
+    // profile
+    Route::get('/profile', [DashboardController::class, 'profile'])->name('profile');
+    // update profile
+    Route::patch('/profile/{id}', [DashboardController::class, 'profile_update']);
 
     // Service Management Controlls
     Route::get('/service', [ServiceController::class, 'index'])->name('service');

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class DashboardController extends Controller
 {
@@ -19,6 +21,25 @@ class DashboardController extends Controller
     public function pages()
     {
         return view('admin.pages.index');
+    }
+
+    public function profile()
+    {
+        return view('admin.profile.index');
+    }
+
+    public function profile_update(Request $request, $id)
+    {
+        $user = User::find($id);
+        $data = [
+            'name' => $request->name,
+        ];
+        if ($request->password) {
+            $data['password'] = Hash::make($request->password);
+        }
+        $user->update($data);
+        $alert = 'Profile has been updated!';
+        return redirect('/admin/profile')->with('success', $alert);
     }
 
     /**

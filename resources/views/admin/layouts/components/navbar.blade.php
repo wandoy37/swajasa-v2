@@ -1,6 +1,6 @@
 <!-- Navbar Header -->
 <nav class="navbar navbar-header navbar-expand-lg" data-background-color="blue2">
-				
+
     <div class="container-fluid">
         <div class="collapse" id="search-nav">
             <form class="navbar-left navbar-form nav-search mr-md-3">
@@ -22,23 +22,23 @@
             <li class="nav-item dropdown hidden-caret">
                 <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#" aria-expanded="false">
                     <div class="avatar-sm">
-                        <img src="{{ asset('atlantis/img/profile.jpg') }}" alt="..." class="avatar-img rounded-circle">
+                        <img src="{{ asset('assets/img/admin.png') }}" alt="..." class="avatar-img rounded-circle">
                     </div>
                 </a>
                 <ul class="dropdown-menu dropdown-user animated fadeIn">
                     <div class="dropdown-user-scroll scrollbar-outer">
                         <li>
                             <div class="user-box">
-                                <div class="avatar-lg"><img src="{{ asset('atlantis/img/profile.jpg') }}" alt="image profile" class="avatar-img rounded"></div>
+                                <div class="avatar-lg"><img src="{{ asset('assets/img/admin.png') }}" alt="image profile" class="avatar-img rounded"></div>
                                 <div class="u-text">
-                                    <h4>Hizrian</h4>
-                                    <p class="text-muted">hello@example.com</p>
+                                    <h4>{{ Auth::user()->name }}</h4>
+                                    <p class="text-muted">{{ Auth::user()->email }}</p>
                                 </div>
                             </div>
                         </li>
                         <li>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">My Profile</a>
+                            <a class="dropdown-item" href="{{ route('profile') }}">My Profile</a>
                             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
                             <form action="{{ route('logout') }}" id="logout-form" method="POST">
                                 @csrf
