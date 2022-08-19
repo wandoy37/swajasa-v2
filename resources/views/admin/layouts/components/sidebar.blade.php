@@ -36,13 +36,13 @@
                 </li>
                 <li class="nav-item {{ (request()->segment(2) == 'benefit') ? 'active' : '' }}">
                     <a href="{{ route('benefit') }}">
-                        <i class="far fas fa-clipboard-list"></i>
+                        <i class="far fa-check-circle"></i>
                         <p>Benefit</p>
                     </a>
                 </li>
                 <li class="nav-item {{ (request()->segment(2) == 'package') ? 'active' : '' }}">
                     <a href="{{ route('package') }}">
-                        <i class="far fas fa-clipboard-list"></i>
+                        <i class="fas fa-box"></i>
                         <p>Package</p>
                     </a>
                 </li>

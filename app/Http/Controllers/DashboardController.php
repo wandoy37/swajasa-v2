@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Message;
+use App\Models\Service;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -15,7 +17,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('admin.index');
+        $message = Message::query()->where('status', 'warning')->count();
+        $messageConfirm = Message::query()->where('status', 'confirm')->count();
+        $serviceDraft = Service::query()->where('status', 'draft')->count();
+        $servicePublish = Service::query()->where('status', 'publish')->count();
+        return view('admin.index', compact('message', 'messageConfirm', 'serviceDraft', 'servicePublish'));
     }
 
     public function pages()

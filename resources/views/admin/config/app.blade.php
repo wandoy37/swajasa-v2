@@ -35,7 +35,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Title</label>
-                                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $configs->title) }}">
+                                        <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $configs->title) }}" required>
                                         @error('title')
                                             <span class="text-danger">
                                                 {{ $message }}
@@ -44,7 +44,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Brand Name</label>
-                                        <input type="text" name="brand_name" class="form-control @error('brand_name') is-invalid @enderror" value="{{ old('brand_name', $configs->brand_name) }}">
+                                        <input type="text" name="brand_name" class="form-control @error('brand_name') is-invalid @enderror" value="{{ old('brand_name', $configs->brand_name) }}" required>
                                         @error('brand_name')
                                             <span class="text-danger">
                                                 {{ $message }}
@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <textarea class="form-control @error('description') is-invalid @enderror" name="description"rows="3">{{ old('description', $configs->description) }}</textarea>
+                                        <textarea class="form-control @error('description') is-invalid @enderror" name="description"rows="3" required>{{ old('description', $configs->description) }}</textarea>
                                         @error('description')
                                             <span class="text-danger">
                                                 {{ $message }}
@@ -62,7 +62,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>About</label>
-                                        <textarea class="form-control @error('about') is-invalid @enderror" name="about"rows="5">{{ old('about', $configs->about) }}</textarea>
+                                        <textarea class="form-control @error('about') is-invalid @enderror" name="about"rows="5" required>{{ old('about', $configs->about) }}</textarea>
                                         @error('about')
                                             <span class="text-danger">
                                                 {{ $message }}
@@ -71,7 +71,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Benefit</label>
-                                        <textarea class="form-control @error('benefit') is-invalid @enderror" name="benefit"rows="5">{{ old('benefit', $configs->benefit) }}</textarea>
+                                        <textarea class="form-control @error('benefit') is-invalid @enderror" name="benefit"rows="5" required>{{ old('benefit', $configs->benefit) }}</textarea>
                                         @error('benefit')
                                             <span class="text-danger">
                                                 {{ $message }}
@@ -82,7 +82,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Map</label>
-                                        <textarea class="form-control @error('map') is-invalid @enderror" name="map"rows="3">{{ old('map', $configs->map) }}</textarea>
+                                        <textarea class="form-control @error('map') is-invalid @enderror" name="map"rows="3" required>{{ old('map', $configs->map) }}</textarea>
                                         @error('map')
                                             <span class="text-danger">
                                                 {{ $message }}

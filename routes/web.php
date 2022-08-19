@@ -9,6 +9,8 @@ use App\Http\Controllers\MessageController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\ServiceController;
 use App\Models\Benefit;
+use App\Models\Config;
+use App\Models\Contact;
 use App\Models\Message;
 use App\Models\Package;
 use App\Models\Service;
@@ -40,7 +42,9 @@ Route::get('/service/{slug}/show', [HomeController::class, 'service_show']);
 
 //succes send message
 Route::get('/success', function () {
-    return view('home.success');
+    $configs = Config::find(1);
+    $contacts = Contact::find(1);
+    return view('home.success', compact('configs', 'contacts'));
 });
 
 // action send meesage

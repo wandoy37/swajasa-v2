@@ -33,7 +33,7 @@
                         @method('PATCH')
                             <div class="form-group">
                                 <label>Title</label>
-                                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $abouts->title) }}">
+                                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" value="{{ old('title', $abouts->title) }}" required>
                                 @error('title')
                                     <span class="text-danger">
                                         {{ $message }}
@@ -42,7 +42,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Description</label>
-                                <textarea class="form-control @error('description') is-invalid @enderror" name="description"rows="3">{{ old('description', $abouts->description) }}</textarea>
+                                <textarea class="form-control @error('description') is-invalid @enderror" name="description"rows="3" required>{{ old('description', $abouts->description) }}</textarea>
                                 @error('description')
                                     <span class="text-danger">
                                         {{ $message }}
@@ -51,7 +51,7 @@
                             </div>
                             <div class="form-group">
                                 <label>content</label>
-                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="3">{{ old('content', $abouts->content) }}</textarea>
+                                <textarea class="form-control @error('content') is-invalid @enderror" name="content" rows="3" required>{{ old('content', $abouts->content) }}</textarea>
                                 @error('content')
                                     <span class="text-danger">
                                         {{ $message }}

@@ -32,11 +32,11 @@
                             </div>
                             <span class="form-control">{{ $item->phone_number }}</span>
                         </div>
-                        <div class="input-group mb-3">
+                        <div class="input-group">
                             <label class="me-2">Pesan</label>
-                            <div>
-                                <span class="form-control">{{ $item->pesan }}</span>
-                            </div>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="form-control">{{ $item->pesan }}</span>
                         </div>
                     </div>
                     <div class="form-group float-right">

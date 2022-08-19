@@ -44,7 +44,7 @@
                         @foreach ($message as $item)
                         <tr>
                             <td>
-                                <a href="/">
+                                <a href="/" data-toggle="modal" data-target="#showMessage-{{ $item->id }}">
                                     {{ $item->email }} <span class="ml-4 text-dark"><i>{{ $item->updated_at->format('d, M Y') }}</i></span>
                                     <div class="my-0">
                                         <p class="text-muted">{{ Str::limit($item->pesan, 82, '...') }}</p>
