@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('home.layouts.app')
 
 @section('content')
     <!-- Banner -->
@@ -9,8 +9,8 @@
                 <img src="{{ asset('assets/img/Header-2-1.png') }}" class="img-fluid" width="90%">
             </div>
             <div class="col-md-6 my-4 text-start">
-                <h1 class="font-bold text-white text-capitalize">Swajasa Lintas Media</h1>
-                <p class="fs-4 text-white">Penyedia layanan internet provider dan Multimedia sebagai solusi maupun penunjang bisnis anda</p>
+                <h1 class="font-bold text-white text-capitalize">{{ $configs->title }}</h1>
+                <p class="fs-4 text-white">{{ $configs->description }}</p>
                 <button class="btn-contact">
                     <img src="{{ asset('assets/img/social/phone.png') }}" class="img-fluid me-2" width="32px">
                     Hubungi Kami
@@ -31,7 +31,7 @@
         <div class="row align-items-center justify-content-center my-4">
             <h1 class="font-bold text-capitalize text-center mb-4 text-primary">Tentang Kami</h1>
             <div class="col-sm-12 text-center text-muted">
-                <p class="fs-4">Kami merupakan badan usaha yang menyediakan jasa Internet, Multimedia dan jasa lainnya yang berhubungan dengan teknologi. Kami memberikan solusi bisnis untuk kecepatan, kehandalan, dan kemampuan untuk memindahkan sejumlah besar data dengan menggunakan media koneksi Fiber Optic yang memberikan ketersediaan tinggi, stabilitas dan kecepatan internet untuk kebutuhan anda.</p>
+                <p class="fs-4">{{ $configs->about }}</p>
             </div>
         </div>
     </div>
@@ -73,58 +73,21 @@
             <h1 class="font-bold text-capitalize text-center mb-4 text-primary">
                 Layanan Kami
             </h1>
+            @foreach ($services as $service)
             <div class="col-sm-5 text-center mt-4">
                 <div class="border-layanan">
-                    <a href="http://" class="text-decoration-none text-dark">
-                        <img src="{{ asset('assets/img/layanan/internet.png') }}" class="img-fluid rounded-circle" width="100px">
+                    <a href="{{ url("/service/$service->slug/show") }}" class="text-decoration-none text-dark">
+                        <img src="{{ asset('uploads/' . $service->icon) }}" class="img-fluid rounded-circle" width="100px">
                         <div class="my-2">
-                            <span class="fs-4 title-layanan">Installasi LAN & Wi-Fi</span>
+                            <span class="fs-4 title-layanan">{{ $service->title }}</span>
                             <p class="description my-2">
-                                Jasa Installasi LAN dan Wireless dilakukan oleh team kami yang berpengalaman dalam bidangnya
+                                {{ $service->description }}
                             </p>
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="col-sm-5 text-center mt-4">
-                <div class="border-layanan">
-                    <a href="http://" class="text-decoration-none text-dark">
-                        <img src="{{ asset('assets/img/layanan/computer.png') }}" class="img-fluid rounded-circle" width="100px">
-                        <div class="my-2">
-                            <span class="fs-4 title-layanan">Internet Desa Mandiri</span>
-                            <p class="description my-2">
-                                Teknologi yang mampu menjangkau seluruh pelosok Indonesia.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-5 text-center mt-4">
-                <div class="border-layanan">
-                    <a href="http://" class="text-decoration-none text-dark">
-                        <img src="{{ asset('assets/img/layanan/digital-marketing.png') }}" class="img-fluid rounded-circle" width="100px">
-                        <div class="my-2">
-                            <span class="fs-4 title-layanan">Production House Multimedia Creator</span>
-                            <p class="description my-2">
-                                Untuk para pembuat konten youtuber, Kami melayani pembuatan video commercial untuk iklan, company profile.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-            <div class="col-sm-5 text-center mt-4">
-                <div class="border-layanan">
-                    <a href="http://" class="text-decoration-none text-dark">
-                        <img src="{{ asset('assets/img/layanan/cctv-camera.png') }}" class="img-fluid rounded-circle" width="100px">
-                        <div class="my-2">
-                            <span class="fs-4 title-layanan">Pemasangan CCTV</span>
-                            <p class="description my-2">
-                                Kami juga menyediakan jasa Pemasangan CCTV beserta Installasi CCTV.
-                            </p>
-                        </div>
-                    </a>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
 </section>
@@ -136,7 +99,7 @@
     <div class="container">
         <div class="row mb-4 pb-4">
             <div class="col-sm-12 text-center">
-                <p class="fs-4 text-muted">Nikmati layanan kami, segera hubungi kami, dan ikuti media sosial kami untuk mendapatkan informasi seputar layanan dan harga spesial</p>
+                <p class="fs-4 text-muted">{{ $configs->benefit }}</p>
                 <button class="btn-contact">
                     <img src="{{ asset('assets/img/social/phone.png') }}" class="img-fluid me-2" width="32px">
                     Hubungi Kami

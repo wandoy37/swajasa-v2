@@ -157,14 +157,14 @@
 		}, 5000);
 	  </script>
 
-    {{-- <script>
+    <script>
         $('#summernote').summernote({
-            placeholder: 'Atlantis',
+            placeholder: '',
             fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New'],
             tabsize: 2,
             height: 300
         });
-    </script> --}}
+    </script>
 
     @stack('scripts')
 

@@ -5,8 +5,8 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ServiceRequest;
 use App\Models\Service;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class ServiceController extends Controller
 {
@@ -48,10 +48,10 @@ class ServiceController extends Controller
         ];
 
         if ($request->file('icon')) {
-            $data['icon'] = $request->file('icon')->store('icon-services');
+            $data['icon'] = $request->file('icon')->store('icon-service', ['disk' => 'public_uploads']);
         }
         if ($request->file('sampul')) {
-            $data['sampul'] = $request->file('sampul')->store('sampul-services');
+            $data['sampul'] = $request->file('sampul')->store('sampul-service', ['disk' => 'public_uploads']);
         }
 
         // ddd($data);
@@ -104,17 +104,19 @@ class ServiceController extends Controller
         // Icon
         if ($request->file('icon')) {
             if ($request->oldIcon) {
-                Storage::delete($request->oldIcon);
+                $destinationPath = 'uploads/';
+                File::delete($destinationPath . $request->oldIcon);
             }
-            $data['icon'] = $request->file('icon')->store('icon-services');
+            $data['icon'] = $request->file('icon')->store('icon-service', ['disk' => 'public_uploads']);
         }
 
         // Sampul
         if ($request->file('sampul')) {
             if ($request->oldSampul) {
-                Storage::delete($request->oldSampul);
+                $destinationPath = 'uploads/';
+                File::delete($destinationPath . $request->oldSampul);
             }
-            $data['sampul'] = $request->file('sampul')->store('sampul-services');
+            $data['sampul'] = $request->file('sampul')->store('sampul-service', ['disk' => 'public_uploads']);
         }
 
 
@@ -128,14 +130,16 @@ class ServiceController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($slug)
+    public function destroy(Request $request, $slug)
     {
         $service = Service::where('slug', $slug)->first();
         if ($service->icon) {
-            Storage::delete($service->icon);
+            $destinationPath = 'uploads/';
+            File::delete($destinationPath . $service->icon);
         }
         if ($service->sampul) {
-            Storage::delete($service->sampul);
+            $destinationPath = 'uploads/';
+            File::delete($destinationPath . $service->sampul);
         }
 
         $service->delete($service);

@@ -17,12 +17,12 @@
 
     <!-- Icon Head -->
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/brand-swajasa.png') }}">
-    <title>Swajasa Lintas - Official</title>
+    <title>{{ $configs->title }}</title>
 </head>
 
 <body>
 
-    @include('layouts.components.navbar')
+    @include('home.layouts.components.navbar')
 
     @yield('content')
 
@@ -31,25 +31,10 @@
     <footer>
         <div class="container text-white pb-4">
             <div class="row pt-4">
-                <div class="col-sm-2 pt-2 mt-2">
-                    <ul>
-                        <li class="fs-5 list-inline title-footer mb-4">Services</li>
-
-                        <a href="http://" class="text-decoration-none text-white">
-                            <li class="list-inline fs-6">Technology</li>
-                        </a>
-                        <a href="http://" class="text-decoration-none text-white">
-                            <li class="list-inline fs-6">Multimedia</li>
-                        </a>
-                        <a href="http://" class="text-decoration-none text-white">
-                            <li class="list-inline fs-6">Internet</li>
-                        </a>
-                        <a href="http://" class="text-decoration-none text-white">
-                            <li class="list-inline fs-6">Security</li>
-                        </a>
-                    </ul>
+                <div class="col-sm-4 pt-2 mt-2 text-center">
+                    <iframe src="{{ $configs->map }}" width="200" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="col-sm-6 pt-2 mt-2">
+                <div class="col-sm-4 pt-2 mt-2">
                     <ul>
                         <li class="fs-5 list-inline title-footer mb-4">Contact Us</li>
 

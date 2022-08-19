@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BenefitController;
+use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MessageController;
@@ -31,6 +32,9 @@ Route::get('/service', [HomeController::class, 'service'])->name('service');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
+// Service details
+Route::get('/service/{slug}/show', [HomeController::class, 'service_show']);
 
 //succes send message
 Route::get('/success', function () {
@@ -90,4 +94,9 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
     Route::patch('/message/{id}', [MessageController::class, 'update']);
     // Delete pesan
     Route::delete('/message/{id}', [MessageController::class, 'destroy']);
+
+    // Configs
+    Route::get('/configs', [ConfigController::class, 'index'])->name('configs');
+    // Update Configs
+    Route::patch('/configs/{id}', [ConfigController::class, 'update']);
 });

@@ -79,12 +79,6 @@
                                                     <option value="{{ $service->id }}">{{ $service->title }}</option>
                                                 @endif
                                             @endforeach
-                                            {{-- @foreach ($services as $service)
-                                            @if (old($service->id, $package->service_id) == $service->id)
-                                                <option value="{{ $service->id }}" selected>{{ $service->title }}</option>
-                                            @endif
-                                                <option value="{{ $service->id }}">{{ $service->title }}</option>
-                                            @endforeach --}}
                                         </select>
                                         @error('service')
                                         <span class="text-danger">
@@ -98,7 +92,7 @@
                                         <div class="select2-input select2-primary">
                                             <select id="multiple" name="benefit[]" class="form-control" multiple="multiple">
                                                 @if (old('benefit', $package->benefits))
-                                                    @foreach (old('device', $package->benefits) as $benefit)
+                                                    @foreach (old('benefit', $package->benefits) as $benefit)
                                                         <option value="{{ $benefit->id }}" selected>{{ $benefit->title }}</option>
                                                     @endforeach
                                                 @endif

@@ -64,7 +64,7 @@
                                 <label>Icon</label>
                                 <div class="input-file input-file-image">
                                     @if ($service->icon)
-                                        <img class="img-upload-preview" width="150" src="{{ asset('storage/' . $service->icon) }}" alt="preview">
+                                        <img class="img-upload-preview" width="150" src="{{ asset('uploads/' . $service->icon) }}" alt="preview">
                                     @else
                                         <img class="img-upload-preview" width="150" src="{{ asset('assets/img/no-image.png') }}" alt="preview">
                                     @endif
@@ -88,7 +88,7 @@
                                 <label>Sampul</label>
                                 <div class="input-file input-file-image">
                                     @if ($service->sampul)
-                                        <img class="img-upload-preview" width="150" src="{{ asset('storage/' . $service->sampul) }}" alt="preview">
+                                        <img class="img-upload-preview" width="150" src="{{ asset('uploads/' . $service->sampul) }}" alt="preview">
                                     @else
                                         <img class="img-upload-preview" width="150" src="{{ asset('assets/img/no-image.png') }}" alt="preview">
                                     @endif
