@@ -57,6 +57,10 @@
                         <i class="fas fa-cogs"></i>
                         <p>Configs</p>
                     </a>
+                    {{-- <a href="{{ route('pages') }}">
+                        <i class="fas fa-layer-group"></i>
+                        <p>Pages</p>
+                    </a> --}}
                     <form action="{{ route('logout') }}" id="logout-form" method="POST">
                         @csrf
                     </form>

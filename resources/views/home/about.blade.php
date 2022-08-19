@@ -11,7 +11,7 @@
             <div class="col-md-6 my-4 text-start">
                 <h1 class="font-bold text-white text-capitalize">Tentang Kami ?</h1>
                 <p class="fs-4 text-white">
-                    Kami merupakan badan usaha yang menyediakan layanan Internet Provider dan Jasa Multimedia
+                    {{ $abouts->description }}
                 </p>
             </div>
         </div>
@@ -28,9 +28,9 @@
     <div class="container mb-2 pb-2">
         <div class="row">
             <div class="col-sm-6 my-4">
-                <h1 class="font-bold fs-1 text-primary">Swajasa Lintas Media</h1>
+                <h1 class="font-bold fs-1 text-primary">{{ $abouts->title }}</h1>
                 <p class="fs-4 my-4">
-                    Terima kasih sudah mampir! Jika kamu memiliki pertanyaan, hubungi kami melalui kontak di laman ini.
+                    {{ $abouts->content }}
                 </p>
             </div>
             <div class="col-sm-6 my-4">
@@ -44,7 +44,7 @@
                     </label>
                     <br>
                     <span class="fs-5">
-                        Jl. P. Diponegoro No.18 RT.25 Kel. Bukuan Kec. Palaran, Kota Samarinda Kalimantan Timur Indonesia Kp.75241
+                        {{ $contacts->alamat }}
                     </span>
                 </div>
                 <div class="my-4">
@@ -54,7 +54,7 @@
                     </label>
                     <br>
                     <span class="fs-5">
-                        (+62) 812-5596-8910
+                        {{ $contacts->telephone }}
                     </span>
                 </div>
                 <div class="my-4">
@@ -64,14 +64,14 @@
                     </label>
                     <br>
                     <span class="fs-5">
-                        customercare@swajasa.id
+                        {{ $contacts->email }}
                     </span>
                 </div>
                 <div class="my-4">
-                    <button class="btn-contact">
+                    <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Haii+kami+dari+swajasa" class="btn-contact">
                         <img src="{{ asset('assets/img/social/phone.png') }}" class="img-fluid me-2" width="32px">
                         Hubungi Kami
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>

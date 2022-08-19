@@ -41,19 +41,19 @@
                         <span class="text-decoration-none">
                             <li class="list-inline fs-6">
                                 <i class="text-white me-2 fa-solid fa-phone"></i>
-                                (+62) 812-5596-8910
+                                {{ $contacts->telephone }}
                             </li>
                         </span>
                         <span class="text-decoration-none">
                             <li class="list-inline fs-6">
                                 <i class="text-white me-2 fa-solid fa-envelope"></i>
-                                customercare@swajasa.id
+                                {{ $contacts->email }}
                             </li>
                         </span>
                         <span class="text-decoration-none">
                             <li class="list-inline fs-6">
                                 <i class="text-white me-2 fa-solid fa-location-dot"></i>
-                                Jl. P. Diponegoro No.18 RT.25 Kel. Bukuan Kec. Palaran, Kota Samarinda Kalimantan Timur Indonesia Kp.75241
+                                {{ $contacts->alamat }}
                             </li>
                         </span>
                     </ul>
@@ -62,16 +62,16 @@
                     <ul>
                         <li class="fs-5 list-inline title-footer mb-4">Social Media</li>
 
-                        <a href="http://" class="text-decoration-none text-white">
+                        <a href="{{ $contacts->facebook }}" class="text-decoration-none text-white">
                             <img src="{{ asset('assets/img/social/facebook-white.png') }}" class="img-fluid me-1" width="32px">
                         </a>
-                        <a href="http://" class="text-decoration-none text-white">
+                        <a href="{{ $contacts->instagram }}" class="text-decoration-none text-white">
                             <img src="{{ asset('assets/img/social/instagram-white.png') }}" class="img-fluid me-1" width="32px">
                         </a>
-                        <a href="http://" class="text-decoration-none text-white">
+                        <a href="{{ $contacts->twitter }}" class="text-decoration-none text-white">
                             <img src="{{ asset('assets/img/social/twitter-white.png') }}" class="img-fluid me-1" width="32px">
                         </a>
-                        <a href="http://" class="text-decoration-none text-white">
+                        <a href="{{ $contacts->linkedin }}" class="text-decoration-none text-white">
                             <img src="{{ asset('assets/img/social/linkedin-white.png') }}" class="img-fluid me-1" width="32px">
                         </a>
                     </ul>
@@ -80,6 +80,9 @@
             <div class="row text-center">
                 <div class="col-sm pt-4 mt-4">
                     <span class="text-white fst-italic">Copyright &copy; WanSite 2022</span>
+                    <div class="my-1">
+                        <a href="{{ route('dashboard') }}" class="text-white text-decoration-none">Operator</a>
+                    </div>
                 </div>
             </div>
         </div>

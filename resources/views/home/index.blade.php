@@ -11,10 +11,10 @@
             <div class="col-md-6 my-4 text-start">
                 <h1 class="font-bold text-white text-capitalize">{{ $configs->title }}</h1>
                 <p class="fs-4 text-white">{{ $configs->description }}</p>
-                <button class="btn-contact">
+                <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Haii+kami+dari+swajasa" class="btn-contact">
                     <img src="{{ asset('assets/img/social/phone.png') }}" class="img-fluid me-2" width="32px">
                     Hubungi Kami
-                </button>
+                </a>
             </div>
         </div>
     </div>
@@ -100,10 +100,10 @@
         <div class="row mb-4 pb-4">
             <div class="col-sm-12 text-center">
                 <p class="fs-4 text-muted">{{ $configs->benefit }}</p>
-                <button class="btn-contact">
+                <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Haii+kami+dari+swajasa" class="btn-contact">
                     <img src="{{ asset('assets/img/social/phone.png') }}" class="img-fluid me-2" width="32px">
                     Hubungi Kami
-                </button>
+                </a>
             </div>
         </div>
     </div>

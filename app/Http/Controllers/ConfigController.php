@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Config;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -17,6 +19,56 @@ class ConfigController extends Controller
     {
         $configs = Config::find(1);
         return view('admin.config.index', compact('configs'));
+    }
+
+    public function app()
+    {
+        $configs = Config::find(1);
+        return view('admin.config.app', compact('configs'));
+    }
+
+    public function abouts()
+    {
+        $abouts = About::find(1);
+        return view('admin.config.about', compact('abouts'));
+    }
+
+    public function update_abouts(Request $request, $id)
+    {
+        $abouts = About::find(1);
+        $data = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'content' => $request->content,
+        ];
+
+        $abouts->update($data);
+        $alert = 'About has been updated!';
+        return redirect('/admin/configs/abouts')->with('success', $alert);
+    }
+
+    public function contacts()
+    {
+        $contacts = Contact::find(1);
+        return view('admin.config.contact', compact('contacts'));
+    }
+
+    public function update_contacts(Request $request, $id)
+    {
+        $contacts = Contact::find(1);
+        $data = [
+            'telephone' => $request->telephone,
+            'email' => $request->email,
+            'alamat' => $request->alamat,
+            'whatsapp' => $request->whatsapp,
+            'facebook' => $request->facebook,
+            'instagram' => $request->instagram,
+            'twitter' => $request->twitter,
+            'linkedin' => $request->linkedin,
+        ];
+        $contacts->update($data);
+        $alert = 'Contact has been updated!';
+        return redirect('/admin/configs/contacts')->with('success', $alert);
     }
 
     /**
@@ -69,7 +121,7 @@ class ConfigController extends Controller
      * @param  \App\Models\Config  $config
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Config $config)
+    public function app_update(Request $request, Config $config)
     {
         $configs = Config::find(1);
 

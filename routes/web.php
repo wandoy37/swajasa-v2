@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\BenefitController;
 use App\Http\Controllers\ConfigController;
 use App\Http\Controllers\DashboardController;
@@ -11,6 +12,7 @@ use App\Models\Benefit;
 use App\Models\Message;
 use App\Models\Package;
 use App\Models\Service;
+use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -47,7 +49,10 @@ Route::post('/message/create', [HomeController::class, 'messageStore'])->name('m
 
 // Admin Group
 Route::prefix('admin')->middleware(['auth'])->group(function () {
+    // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    // Pages
+    Route::get('/pages', [DashboardController::class, 'pages'])->name('pages');
 
     // Service Management Controlls
     Route::get('/service', [ServiceController::class, 'index'])->name('service');
@@ -97,6 +102,18 @@ Route::prefix('admin')->middleware(['auth'])->group(function () {
 
     // Configs
     Route::get('/configs', [ConfigController::class, 'index'])->name('configs');
-    // Update Configs
-    Route::patch('/configs/{id}', [ConfigController::class, 'update']);
+    // App
+    Route::get('/configs/apps', [ConfigController::class, 'app'])->name('app');
+    // Update App
+    Route::patch('/configs/apps/{id}', [ConfigController::class, 'app_update']);
+
+    // About
+    Route::get('/configs/abouts', [ConfigController::class, 'abouts'])->name('abouts');
+    // Update App
+    Route::patch('/configs/abouts/{id}', [ConfigController::class, 'update_abouts']);
+
+    // Contacts
+    Route::get('/configs/contacts', [ConfigController::class, 'contacts'])->name('contacts');
+    // update contact
+    Route::patch('/configs/contacts/{id}', [ConfigController::class, 'update_contacts']);
 });

@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
             ServiceSeeder::class,
             BenefitSeeder::class,
             ConfigSeeder::class,
+            AboutSeeder::class,
+            ContactSeeder::class,
         ]);
     }
 }

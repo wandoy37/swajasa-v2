@@ -16,6 +16,11 @@ class DashboardController extends Controller
         return view('admin.index');
     }
 
+    public function pages()
+    {
+        return view('admin.pages.index');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

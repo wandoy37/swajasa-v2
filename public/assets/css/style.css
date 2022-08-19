@@ -82,7 +82,8 @@ a.btn-paket:hover {
   transition: transform 1s;
 }
 
-button.btn-contact:hover {
+a.btn-contact:hover {
+    color: white;
   -ms-transform: scale(1.1); /* IE 9 */
   -webkit-transform: scale(1.1); /* Safari 3-8 */
   transform: scale(1.1);

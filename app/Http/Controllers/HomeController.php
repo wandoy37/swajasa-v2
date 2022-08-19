@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use App\Models\Config;
+use App\Models\Contact;
 use App\Models\Message;
 use App\Models\Package;
 use App\Models\Service;
@@ -14,19 +16,28 @@ class HomeController extends Controller
     public function home()
     {
         // configs website
+        // app
         $configs = Config::find(1);
+        // contacts
+        $contacts = Contact::find(1);
+        // end configs website
+
         $services = Service::all();
-        return view('home.index', compact('configs', 'services'));
+        return view('home.index', compact('configs', 'contacts', 'services'));
     }
 
     // service page
     public function service()
     {
         // configs website
+        // app
         $configs = Config::find(1);
+        // contacts
+        $contacts = Contact::find(1);
+        // end configs website
         // show services
         $services = Service::query()->where('status', 'publish')->get();
-        return view('home.services', compact('configs', 'services'));
+        return view('home.services', compact('configs', 'contacts', 'services'));
     }
 
     // Service details page
@@ -41,16 +52,26 @@ class HomeController extends Controller
     public function about()
     {
         // configs website
+        // app
         $configs = Config::find(1);
-        return view('home.about', compact('configs'));
+        // contacts
+        $contacts = Contact::find(1);
+        // end configs website
+        // Show data about
+        $abouts = About::find(1);
+        return view('home.about', compact('configs', 'contacts', 'abouts'));
     }
 
     //contact page
     public function contact()
     {
         // configs website
+        // app
         $configs = Config::find(1);
-        return view('home.contact', compact('configs'));
+        // contacts
+        $contacts = Contact::find(1);
+        // end configs website
+        return view('home.contact', compact('configs', 'contacts'));
     }
 
     // action send create
