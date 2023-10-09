@@ -18,21 +18,21 @@
 
         <div class="row my-4 py-4">
             <div class="col-sm">
-                <div class="text-center">
-                    <span class="font-bold fs-4 text-primary">Pricing</span>
-                </div>
-                <div class="description my-2 text-center">
+                <div class="description my-2 mb-4">
                     {!! $service->content !!}
+                </div>
+                <div class="text-center">
+                    <span class="font-bold fs-4 text-blue-custome">Pricing</span>
                 </div>
             </div>
         </div>
         <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
-            @foreach ($service->packages as $item)
+            @foreach ($packages as $item)
                 <div class="col-md-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <div class="text-center mb-4">
-                                <h5 class="card-title font-bold text-primary">{{ $item->title }}</h5>
+                                <h5 class="card-title font-bold text-blue-custome">{{ $item->title }}</h5>
                                 @if (!$item->price == 0)
                                     @if ($item->discount == null)
                                     <p class="card-text font-bold">@currency($item->price) <small class="text-muted">/Bulan</small></p>
@@ -46,7 +46,7 @@
                                 <ul>
                                     @foreach ($item->benefits as $benefit)
                                         <li class="list-inline">
-                                            <i class="fa-solid fa-circle-check text-primary"></i>
+                                            <i class="fa-solid fa-circle-check text-blue-custome"></i>
                                             {{ $benefit->title }}
                                         </li>
                                     @endforeach

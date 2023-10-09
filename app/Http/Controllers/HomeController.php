@@ -45,12 +45,14 @@ class HomeController extends Controller
     {
         $service = Service::query()->where('slug', $slug)->first();
         // configs website
+        // Shorting package berdasarkan price terendah
+        $packages = collect(Package::query()->where('service_id', $service->id)->get())->sortBy('price')->values()->all();
         // app
         $configs = Config::find(1);
         // contacts
         $contacts = Contact::find(1);
         // end configs website
-        return view('home.service.details', compact('service', 'contacts', 'configs'));
+        return view('home.service.details', compact('service', 'contacts', 'configs', 'packages'));
     }
 
     // about page

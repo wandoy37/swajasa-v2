@@ -27,7 +27,7 @@
         <div class="row mb-4 py-4 mt-4">
             <div class="col-sm-12 text-center">
                 <p class="fs-4 text-muted">{{ $configs->benefit }}</p>
-                <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Haii+kami+dari+swajasa" class="btn-contact">
+                <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Halo+Swajasa+saya+ingin+melakukan+pemasangan+WiFi+di+rumah" class="btn-contact">
                     <img src="{{ asset('assets/img/social/phone.png') }}" class="img-fluid me-2" width="32px">
                     Hubungi Kami
                 </a>

@@ -11,7 +11,7 @@
             <div class="col-md-6 my-4 text-start">
                 <h1 class="font-bold text-white text-capitalize">{{ $configs->title }}</h1>
                 <p class="fs-4 text-white">{{ $configs->description }}</p>
-                <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Haii+kami+dari+swajasa" class="btn-contact">
+                <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Halo+Swajasa+saya+ingin+melakukan+pemasangan+WiFi+di+rumah" class="btn-contact">
                     <img src="{{ asset('assets/img/social/phone.png') }}" class="img-fluid me-2" width="32px">
                     Hubungi Kami
                 </a>
@@ -94,7 +94,7 @@
                                         <div class="card h-100">
                                             <div class="card-body">
                                                 <div class="text-center mb-4">
-                                                    <h5 class="card-title font-bold text-primary">{{ $item->title }}</h5>
+                                                    <h5 class="card-title font-bold text-blue-custome">{{ $item->title }}</h5>
                                                     @if ($item->discount == null)
                                                         <p class="card-text font-bold">@currency($item->price) <small class="text-muted">/Bulan</small></p>
                                                     @else
@@ -106,7 +106,7 @@
                                                     <ul>
                                                         @foreach ($item->benefits as $benefit)
                                                             <li class="list-inline">
-                                                                <i class="fa-solid fa-circle-check text-primary"></i>
+                                                                <i class="fa-solid fa-circle-check text-blue-custome"></i>
                                                                 {{ $benefit->title }}
                                                             </li>
                                                         @endforeach
@@ -141,7 +141,7 @@
         <div class="row mb-4 pb-4">
             <div class="col-sm-12 text-center">
                 <p class="fs-4 text-muted">{{ $configs->benefit }}</p>
-                <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Haii+kami+dari+swajasa" class="btn-contact">
+                <a href="https://api.whatsapp.com/send/?phone={{ $contacts->whatsapp }}&text=Halo+Swajasa+saya+ingin+melakukan+pemasangan+WiFi+di+rumah" class="btn-contact">
                     <img src="{{ asset('assets/img/social/phone.png') }}" class="img-fluid me-2" width="32px">
                     Hubungi Kami
                 </a>
